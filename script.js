@@ -49,10 +49,10 @@ function addNum(num){
 
 function operation(){
     if(a === 0){
-        a = parseInt(current.textContent);
+        a = parseFloat(current.textContent);
         current.textContent = "";
     }else{
-        b = parseInt(current.textContent);
+        b = parseFloat(current.textContent);
         a = operate(op,a,b);
         current.textContent = a;
     }
