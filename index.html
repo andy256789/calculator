@@ -12,29 +12,40 @@
 <body>
     <div class="calculator">
         <div class="display">
+            <div class="operator"></div>
             <div class="current"></div>
         </div>
-        <div class="buttons">
-            <button id="clear">C</button>
-            <div class="numbers">
-                <button id="c7">7</button>
-                <button id="c8">8</button>
-                <button id="c9">9</button>
-                <button id="c4">4</button>
-                <button id="c5">5</button>
-                <button id="c6">6</button>
-                <button id="c1">1</button>
-                <button id="c2">2</button>
-                <button id="c3">3</button>
-                <button id="c0">0</button>
+        <div class="firstRow">
+            <button id="clear" class="op">C</button>
+            <button id="divide" class="op">/</button>
+            <button id="times" class="op">*</button>
+            <button id="backspace" class="op">←</button>
+        </div>
+        <div class="secondRow">
+            <button id="c7" class="num">7</button>
+            <button id="c8" class="num">8</button>
+            <button id="c9" class="num">9</button>
+            <button id="minus" class="op">-</button>
+        </div>
+        <div class="thirdRow">
+            <button id="c4" class="num">4</button>
+            <button id="c5" class="num">5</button>
+            <button id="c6" class="num">6</button>
+            <button id="plus" class="op">+</button>
+        </div>
+        <div class="bottom">
+            <div class="forthfive">
+                <div class="fourthRow">
+                    <button id="c1" class="num">1</button>
+                    <button id="c2" class="num">2</button>
+                    <button id="c3" class="num">3</button>
+                </div>
+                <div class="fifthRow">
+                    <button id="c0" class="num">0</button>
+                    <button id="dot" class="num">.</button>
+                </div>
             </div>
-            <div class="operators">
-                <button id="plus">+</button>
-                <button id="minus">-</button>
-                <button id="times">*</button>
-                <button id="divide">/</button>
-                <button id="equals">=</button>
-            </div>
+            <button id="equals" class="op">=</button>
         </div>
     </div>
 </body>

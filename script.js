@@ -16,8 +16,12 @@ const divide = document.querySelector("#divide");
 const equals = document.querySelector("#equals");
 
 const clear  = document.querySelector("#clear");
+const backspace = document.querySelector("#backspace");
+const dot = document.querySelector("#dot");
 
 const current = document.querySelector(".display > .current");
+const operator = document.querySelector(".display > .operator");
+
 
 one.onclick   = () => addNum("1");
 two.onclick   = () => addNum("2");
@@ -47,15 +51,17 @@ function addNum(num){
 
 }
 
-function operation(){
+function operation(op){
     if(a === 0){
-        a = parseInt(current.textContent);
+        a = parseFloat(current.textContent);
         current.textContent = "";
     }else{
-        b = parseInt(current.textContent);
+        b = parseFloat(current.textContent);
         a = operate(op,a,b);
         current.textContent = a;
     }
+    changeOp(op);
+    updateOp(op);
 }
 
 function changeOp(operator){
@@ -63,40 +69,45 @@ function changeOp(operator){
     opPressed = true;
 }
 
-plus.addEventListener("click", () => {
-    operation();
-    changeOp("+");
-});
-
-minus.addEventListener("click", () => {
-    operation();
-    changeOp("-");
-});
-
-times.addEventListener("click", () => {
-    operation();
-    changeOp("*");
-});
-
-divide.addEventListener("click", () => {
-    operation();
-    changeOp("/");
-});
+plus.onclick = () => operation("+");
+minus.onclick = () => operation("-");
+times.onclick = () => operation("*");
+divide.onclick = () => operation("/");
 
 equals.addEventListener("click", () => {
-    b = parseInt(current.textContent);
-    current.textContent = "";
+    b = parseFloat(current.textContent);
     current.textContent = operate(op,a,b);
     a = 0;
     b = 0;
+    updateOp("=");
     opPressed = true;
 });
 
 clear.addEventListener("click", () => {
     current.textContent = "";
+    updateOp("");
     a = 0;
     b = 0;
 });
+
+
+backspace.addEventListener("click", () => {
+    current.textContent = current.textContent.slice(0,-1);
+});
+
+dot.addEventListener("click", () => {
+    if(current.textContent.includes(".")){
+        return
+    }else if(!current.textContent){
+        current.textContent ="0.";
+    }else{
+        current.textContent +=".";
+    }
+});
+
+function updateOp(op){
+    operator.textContent = op;
+}
 
 function Calc(){
     this.methods = {
@@ -113,5 +124,5 @@ function operate(op,a,b){
 }
 
 function round(num){
-    return Math.round(num*10**6)/10**6
+    return Math.round(num*10**3)/10**3
 }
