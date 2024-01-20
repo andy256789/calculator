@@ -44,6 +44,12 @@ body{
     margin: 10px;
 }
 
+.operator{
+    font-size: 30px;
+    margin-top: 30px;
+    align-self: flex-start;
+}
+
 .firstRow{
     display: flex;
 }

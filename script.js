@@ -79,13 +79,13 @@ equals.addEventListener("click", () => {
     current.textContent = operate(op,a,b);
     a = 0;
     b = 0;
-    updateOp("=");
+    operator.textContent = "";
     opPressed = true;
 });
 
 clear.addEventListener("click", () => {
     current.textContent = "";
-    updateOp("");
+    operator.textContent = "";
     a = 0;
     b = 0;
 });
@@ -106,7 +106,7 @@ dot.addEventListener("click", () => {
 });
 
 function updateOp(op){
-    operator.textContent = op;
+    operator.textContent = `${a} ${op}`;
 }
 
 function Calc(){
