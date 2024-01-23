@@ -89,6 +89,14 @@ body{
     
 }
 
+.num:hover{
+    background-color: #3d1169;
+}
+
+.op:hover{
+    background-color: #d38bfd;
+}
+
 #c0{
     width: 200px;
     flex: 1;
